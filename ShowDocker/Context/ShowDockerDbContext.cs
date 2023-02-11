@@ -7,6 +7,7 @@ namespace ShowDocker.Context
   {
     public ShowDockerDbContext(DbContextOptions options) : base(options)
     {
+      Database.EnsureCreated();
     }
 
     public DbSet<TopG> TopGs { get; set; }
