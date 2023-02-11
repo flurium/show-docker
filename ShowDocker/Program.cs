@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using ShowDocker.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STR") ?? "";
+builder.Services.AddDbContext<ShowDockerDbContext>(op => op.UseNpgsql(connectionString));
 
 var app = builder.Build();
 

@@ -1,7 +1,22 @@
-﻿@{
+﻿@model IEnumerable<TopG>?
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">dima IS DAMN and NOT TOP G</h1>
+    
+
+    @if(Model != null) {
+  
+      <div>Real TOP G:</div>
+      <ul >
+      @foreach(var topg in Model)
+      {
+        <li>@topg.Name</li>
+      }
+    </ul>
+    }
+
 </div>
